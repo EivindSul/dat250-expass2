@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class DomainManager {
 	private HashMap<String, User> users;	
-	private HashMap<String, Poll> polls;	
+	private HashMap<Integer, Poll> polls;	
 	private HashMap<User, Invite> invites;	
 
 	public HashMap<String, User> getUsers(){
@@ -18,4 +18,13 @@ public class DomainManager {
 	public HashMap<User, Invite> getInvites(){
 		return this.invites;
 	}
+
+	public void addUser(User user){
+		users.put(user.username, user);
+	}
+
+	public void addPoll(Poll poll){
+		polls.put(poll.id, poll);
+	}
+	
 }

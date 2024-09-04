@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Poll {
+	public Integer id;
+	public Date publishedAt;
+	public Date validUntil;
 	String question;
-	Date publishedAt;
-	Date validUntil;
 	// VoteOption[] options;
 	ArrayList<VoteOption> options;
 	boolean _private;
