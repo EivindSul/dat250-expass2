@@ -2,14 +2,15 @@ package dat250.exp2;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Poll {
 	private Integer id;
+	private String owner;
 	private Date publishedAt;
 	private Date validUntil;
 	private String question;
-	// VoteOption[] options;
-	private ArrayList<VoteOption> options;
+	private List<VoteOption> options;
 	private boolean isPrivate;
 	private int maxVotes;
 
@@ -21,6 +22,14 @@ public class Poll {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
 	}
 
 	public Date getPublishedAt() {
@@ -47,7 +56,7 @@ public class Poll {
 		this.question = question;
 	}
 
-	public ArrayList<VoteOption> getOptions() {
+	public List<VoteOption> getOptions() {
 		return options;
 	}
 

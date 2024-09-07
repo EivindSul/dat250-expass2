@@ -1,6 +1,8 @@
 package dat250.exp2;
 
+import java.util.Collection;
 import java.util.HashMap;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -36,13 +38,33 @@ public class DomainManager implements PollRepository {
 	}
 
 	@Override
+	public Collection<User> getAllUsers(){
+		return users.values();
+	}
+
+	@Override
 	public void addUser(User user){
 		users.put(user.getUsername(), user);
 	}
 
 	@Override
+	public void removeUser(String username){
+		users.remove(username);
+	}
+
+	@Override
+	public Collection<Poll> getAllPolls(){
+		return polls.values();
+	}
+
+	@Override
 	public void addPoll(Poll poll){
 		polls.put(poll.getId(), poll);
+	}
+
+	@Override
+	public void removePoll(Integer pollId){
+		polls.remove(pollId);
 	}
 
 	@Override

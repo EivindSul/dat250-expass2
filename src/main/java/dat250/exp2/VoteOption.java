@@ -4,7 +4,9 @@ public class VoteOption {
 	private String caption;
 	private int presentationOrder;
 
-	public VoteOption(){}
+	public VoteOption(String caption){
+		this.caption = caption;
+	}
 
 	public String getCaption() {
 		return caption;
