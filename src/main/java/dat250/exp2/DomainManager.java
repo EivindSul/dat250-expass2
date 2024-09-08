@@ -68,6 +68,17 @@ public class DomainManager implements PollRepository {
 	}
 
 	@Override
+	public Collection<Vote> getVotes(Integer pollId){
+		return polls.get(pollId).getVotes();
+	}
+
+	@Override
+	public void addVote(Integer pollId, Vote vote){
+		Poll poll = polls.get(pollId);
+		poll.addVote(vote);
+	}
+
+	@Override
 	public void addInvite(Invite invite) {
 		throw new UnsupportedOperationException("Unimplemented method 'addInvite'");
 	}

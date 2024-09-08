@@ -42,8 +42,16 @@ http :8080/users
 
 Body file: make-poll.json
 ```json
-
-
+{
+    "id": 1,
+    "owner": "vinnys",
+    "maxVotes": 1,
+    "question": "Is spring fun to work in?",
+    "options": ["yes", "no", "maybe"],
+    "private": false,
+    "publishedAt": "2024-09-09T12:00:00+02:00",
+    "validUntil": "2024-09-12T12:00:00+02:00"
+}
 ```
 
 ## Using httpie
@@ -55,10 +63,33 @@ http :8080/polls < make-poll.json
 http :8080/polls
 
 # User 2 votes on the poll
+```json
+{
+    "user": "vinnys",
+    "option": "yes",
+    "publishedAt": "2024-09-09T13:00:00+02:00",
+}
+```
+
+## Using httpie
+http :8080/polls/1 < vote-poll-1.json
 
 # User 2 changes his vote
+```json
+{
+    "user": "vinnys",
+    "option": "yes",
+    "publishedAt": "2024-09-09T14:00:00+02:00",
+}
+```
+
+## Using httpie
+http :8080/polls/1 < vote-change-poll-1.json
 
 # List votes (-> shows the most recent vote for User 2)
+
+## Using httpie
+http :8080/polls/1
 
 # Delete the one poll
 

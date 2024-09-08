@@ -1,7 +1,9 @@
 package dat250.exp2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Poll {
@@ -14,7 +16,11 @@ public class Poll {
 	private boolean isPrivate;
 	private int maxVotes;
 
-	public Poll(){}
+	private HashMap<String, Vote> votes;	
+
+	public Poll(){
+		votes = new HashMap<String, Vote>();	
+	}
 
 	public Integer getId() {
 		return id;
@@ -60,10 +66,6 @@ public class Poll {
 		return options;
 	}
 
-	public void setOptions(ArrayList<VoteOption> options) {
-		this.options = options;
-	}
-
 	public boolean isPrivate() {
 		return isPrivate;
 	}
@@ -78,6 +80,22 @@ public class Poll {
 
 	public void setMaxVotes(int maxVotes) {
 		this.maxVotes = maxVotes;
+	}
+
+	public void setOptions(List<VoteOption> options) {
+		this.options = options;
+	}
+
+	public Collection<Vote> getVotes() {
+		return votes.values();
+	}
+
+	public void addVote(Vote vote){
+		votes.put(vote.getUser(), vote);
+	}
+
+	public void setVotes(HashMap<String, Vote> votes) {
+		this.votes = votes;
 	}
 
 	

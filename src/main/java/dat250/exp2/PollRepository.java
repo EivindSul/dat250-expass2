@@ -14,6 +14,8 @@ public interface PollRepository {
 	public void removeUser(String username);
 	public Collection<Poll> getAllPolls();
 	public void addPoll(Poll poll);
+	public Collection<Vote> getVotes(Integer pollId);
+	public void addVote(Integer pollId, Vote vote);
 	public void removePoll(Integer pollId);
 	public void addInvite(Invite invite);
 }
