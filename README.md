@@ -2,7 +2,18 @@
 
 Experiment assignment 2 in DAT250
 
-**Work in progress!**
+# Known issues
+I did not have time to complete the task fully in time. 
+Here are the issues I know of:
+## Not implemented
+- Invites
+- Logged-in state
+- Vote limit
+- Anonymous votes
+
+## Could use some work, but functional
+- Votes do not get their own publishedAt time, but inherit the one from the poll.
+- Methods rely on the default setters/getters and constructors. I think this is messy, and request bodies are cluttered.
 
 # Technical obstacles
 
@@ -37,6 +48,4 @@ The main difficulty here was that I thought I should add the -x flag to
 the command, which indicates export. This did not work, and I have no idea
 why. My guess is that PATH already exists, so exporting it again does not
 work, and is also not neccessary.
-
-# Known issues
 
