@@ -3,7 +3,7 @@
 Experiment assignment 2 in DAT250
 
 # Known issues
-I did not have time to complete the task fully in time. 
+I was not really happy with the state of the program, but I ran out of time.
 Here are the issues I know of:
 ## Not implemented
 - Invites
