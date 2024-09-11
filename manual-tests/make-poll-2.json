@@ -1,0 +1,11 @@
+{
+    "id": 2,
+    "owner": "Eivind",
+    "maxVotes": 1,
+    "question": "Do you like APIs?",
+    "options": ["yes", "no", "maybe"],
+    "private": false,
+    "publishedAt": "2024-09-09T12:00:00+02:00",
+    "validUntil": "2024-09-10T12:00:00+02:00"
+}
+
