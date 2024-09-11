@@ -89,8 +89,22 @@ public class Poll {
 		return votes.values();
 	}
 
-	public void addVote(Vote vote){
+	public boolean addVote(Vote vote){
+
+		Date voteTime = vote.getPublishedAt();
+
+		if (voteTime.before(this.getPublishedAt())){
+			System.out.println("Vote is too early, invalid!");
+			return false;
+		}
+
+		if (voteTime.after(this.getValidUntil())){
+			System.out.println("Vote is too late, invalid!");
+			return false;
+		}
+
 		votes.put(vote.getUser(), vote);
+		return true;
 	}
 
 	public void setVotes(HashMap<String, Vote> votes) {

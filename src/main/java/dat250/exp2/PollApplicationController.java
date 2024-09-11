@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -80,10 +81,15 @@ public class PollApplicationController {
 	}
 
 	@PostMapping("/polls/{pollId}")
-	public ResponseEntity<Vote> postVote(@PathVariable Integer pollId, @RequestBody Vote vote) {
+	public ResponseEntity<?> postVote(@PathVariable Integer pollId, @RequestBody Vote vote) {
 		vote.setPollId(pollId);
-		repo.addVote(vote);
-		return ResponseEntity.created(URI.create("/polls/" + pollId.toString() + "/" + vote.getUser())).body(vote);
+		if ( repo.addVote(vote) ) {
+			return ResponseEntity.created(URI.create("/polls/" + pollId.toString() + "/" + vote.getUser())).body(vote);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+			.body("Poll is inactive, the time in the vote is outside the specified timeframe in poll.");
+		}
 	}
 
 

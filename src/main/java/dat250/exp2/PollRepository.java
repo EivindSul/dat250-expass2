@@ -15,7 +15,7 @@ public interface PollRepository {
 	public Collection<Poll> getAllPolls();
 	public void addPoll(Poll poll);
 	public Collection<Vote> getVotes(Integer pollId);
-	public void addVote(Vote vote);
+	public boolean addVote(Vote vote);
 	public void removePoll(Integer pollId);
 	public void addInvite(Invite invite);
 }
