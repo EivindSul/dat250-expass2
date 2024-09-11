@@ -73,7 +73,8 @@ public class DomainManager implements PollRepository {
 	}
 
 	@Override
-	public void addVote(Integer pollId, Vote vote){
+	public void addVote(Vote vote){
+		Integer pollId = vote.getPollId();
 		Poll poll = polls.get(pollId);
 		poll.addVote(vote);
 	}

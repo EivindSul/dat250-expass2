@@ -81,7 +81,8 @@ public class PollApplicationController {
 
 	@PostMapping("/polls/{pollId}")
 	public ResponseEntity<Vote> postVote(@PathVariable Integer pollId, @RequestBody Vote vote) {
-		repo.addVote(pollId, vote);
+		vote.setPollId(pollId);
+		repo.addVote(vote);
 		return ResponseEntity.created(URI.create("/polls/" + pollId.toString() + "/" + vote.getUser())).body(vote);
 	}
 

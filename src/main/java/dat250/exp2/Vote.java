@@ -4,11 +4,15 @@ import java.util.Date;
 
 public class Vote {
 	private String user;
-	private Date publishedAt;
 	private Integer pollId;
 	private VoteOption option;
 
-	public Vote(){}
+	private Date publishedAt;
+
+	public Vote(){
+		this.publishedAt = new Date();
+		this.publishedAt.getTime();
+	}
 
 	public Integer getPollId() {
 		return pollId;
@@ -21,12 +25,11 @@ public class Vote {
 	public Date getPublishedAt() {
 		return publishedAt;
 	}
-	public void setPublishedAt(Date publishedAt) {
-		this.publishedAt = publishedAt;
-	}
+
 	public VoteOption getOption() {
 		return option;
 	}
+
 	public void setOption(VoteOption option) {
 		this.option = option;
 	}
