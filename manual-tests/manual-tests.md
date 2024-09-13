@@ -12,12 +12,12 @@ Body file: make-user.json
 ```
 
 ## Using httpie
-http :8080/users < make-user.json
+http :8080/api/users < make-user.json
 
 # List all users (-> shows the newly created user)
 
 ## Using httpie
-http :8080/users 
+http :8080/api/users 
 
 # Create another user
 
@@ -31,12 +31,12 @@ Body file: make-user-2.json
 ```
 
 ## Using httpie
-http :8080/users < make-user-2.json
+http :8080/api/users < make-user-2.json
 
 # List all users again (-> shows two users)
 
 ## Using httpie
-http :8080/users 
+http :8080/api/users 
 
 # User 1 creates a new poll
 
@@ -55,12 +55,12 @@ Body file: make-poll.json
 ```
 
 ## Using httpie
-http :8080/polls < make-poll.json
+http :8080/api/polls < make-poll.json
 
 # List polls (-> shows the new poll)
 
 ## Using httpie
-http :8080/polls
+http :8080/api/polls
 
 # User 2 votes on the poll
 ```json
@@ -72,7 +72,7 @@ http :8080/polls
 ```
 
 ## Using httpie
-http :8080/polls/1 < vote-poll-1.json
+http :8080/api/polls/1 < vote-poll-1.json
 
 # User 2 changes his vote
 ```json
@@ -84,17 +84,17 @@ http :8080/polls/1 < vote-poll-1.json
 ```
 
 ## Using httpie
-http :8080/polls/1 < vote-change-poll-1.json
+http :8080/api/polls/1 < vote-change-poll-1.json
 
 # List votes (-> shows the most recent vote for User 2)
 
 ## Using httpie
-http :8080/polls/1
+http :8080/api/polls/1
 
 # Delete the one poll
 
 ## Using httpie
-http DELETE :8080/polls/1
+http DELETE :8080/api/polls/1
 
 # List votes (-> empty)
 

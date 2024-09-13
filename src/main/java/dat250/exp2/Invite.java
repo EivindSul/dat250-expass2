@@ -1,6 +1,9 @@
 package dat250.exp2;
 
 public class Invite {
+
+	// UNUSED FOR NOW
+
 	private User fromUser;
 	private User toUser;
 	private Poll poll;

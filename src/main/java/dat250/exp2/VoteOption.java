@@ -2,7 +2,12 @@ package dat250.exp2;
 
 public class VoteOption {
 	private String caption;
-	private int presentationOrder;
+	
+	// This attribute was specified in the
+	// task description, but I chose to 
+	// omit it for now to simplify development.
+	
+	// private int presentationOrder;
 
 	public VoteOption(){}
 
@@ -16,13 +21,5 @@ public class VoteOption {
 
 	public void setCaption(String caption) {
 		this.caption = caption;
-	}
-
-	public int getPresentationOrder() {
-		return presentationOrder;
-	}
-
-	public void setPresentationOrder(int presentationOrder) {
-		this.presentationOrder = presentationOrder;
 	}
 }

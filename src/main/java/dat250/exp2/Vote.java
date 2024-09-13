@@ -1,17 +1,16 @@
 package dat250.exp2;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Vote {
 	private String user;
 	private Integer pollId;
 	private VoteOption option;
 
-	private Date publishedAt;
+	private LocalDateTime publishedAt;
 
 	public Vote(){
-		this.publishedAt = new Date();
-		this.publishedAt.getTime();
+		this.publishedAt = LocalDateTime.now();
 	}
 
 	public Integer getPollId() {
@@ -22,7 +21,7 @@ public class Vote {
 		this.pollId = pollId;
 	}
 
-	public Date getPublishedAt() {
+	public LocalDateTime getPublishedAt() {
 		return publishedAt;
 	}
 

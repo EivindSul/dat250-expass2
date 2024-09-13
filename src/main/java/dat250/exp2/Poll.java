@@ -1,24 +1,32 @@
 package dat250.exp2;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 public class Poll {
 	private Integer id;
 	private String owner;
-	private Date publishedAt;
-	private Date validUntil;
 	private String question;
 	private List<VoteOption> options;
-	private boolean isPrivate;
-	private int maxVotes;
-
+	
+	// These attributes are specified in the
+	// task description, but I chose to 
+	// omit them for now to simplify development.
+	
+	// private boolean isPrivate;
+	// private int maxVotes;
+	
+	// Attributes not set by request.
+	private LocalDateTime publishedAt;
+	private LocalDateTime validUntil;
 	private HashMap<String, Vote> votes;	
 
 	public Poll(){
 		votes = new HashMap<String, Vote>();	
+		publishedAt = LocalDateTime.now();
+		validUntil = LocalDateTime.now().plusDays(1);
 	}
 
 	public Integer getId() {
@@ -37,20 +45,12 @@ public class Poll {
 		this.owner = owner;
 	}
 
-	public Date getPublishedAt() {
+	public LocalDateTime getPublishedAt() {
 		return publishedAt;
 	}
 
-	public void setPublishedAt(Date publishedAt) {
-		this.publishedAt = publishedAt;
-	}
-
-	public Date getValidUntil() {
+	public LocalDateTime getValidUntil() {
 		return validUntil;
-	}
-
-	public void setValidUntil(Date validUntil) {
-		this.validUntil = validUntil;
 	}
 
 	public String getQuestion() {
@@ -64,23 +64,6 @@ public class Poll {
 	public List<VoteOption> getOptions() {
 		return options;
 	}
-
-	public boolean isPrivate() {
-		return isPrivate;
-	}
-
-	public void setPrivate(boolean isPrivate) {
-		this.isPrivate = isPrivate;
-	}
-
-	public int getMaxVotes() {
-		return maxVotes;
-	}
-
-	public void setMaxVotes(int maxVotes) {
-		this.maxVotes = maxVotes;
-	}
-
 	public void setOptions(List<VoteOption> options) {
 		this.options = options;
 	}
@@ -91,14 +74,14 @@ public class Poll {
 
 	public boolean addVote(Vote vote){
 
-		Date voteTime = vote.getPublishedAt();
+		LocalDateTime voteTime = vote.getPublishedAt();
 
-		if (voteTime.before(this.getPublishedAt())){
+		if (voteTime.isBefore(this.getPublishedAt())){
 			System.out.println("Vote is too early, invalid!");
 			return false;
 		}
 
-		if (voteTime.after(this.getValidUntil())){
+		if (voteTime.isAfter(this.getValidUntil())){
 			System.out.println("Vote is too late, invalid!");
 			return false;
 		}
@@ -106,11 +89,5 @@ public class Poll {
 		votes.put(vote.getUser(), vote);
 		return true;
 	}
-
-	public void setVotes(HashMap<String, Vote> votes) {
-		this.votes = votes;
-	}
-
-	
 }
 
