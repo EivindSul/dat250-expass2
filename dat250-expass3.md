@@ -2,6 +2,11 @@
 
 ## Technical issues
 
+Currently, github actions fail because the tests fail.
+This is because the tests require the backend to be running to pass.
+This is a bad solution, but I tried for a couple hours and did not figure out how to run an own instance for the tests.
+I figured it would be better to have bad tests than none.
+
 It was hard to reload components without the website twitching and scrolling back up.
 I have not worked with frontend before, so I am sure there exists a nice solution for this,
 but I did not find one for now.
