@@ -1,1 +1,3 @@
-rootProject.name = "exp2"
+rootProject.name = "poll-app"
+include("backend")
+include("frontend")

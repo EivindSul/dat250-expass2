@@ -1,9 +1,17 @@
 <script>
+    import { onMount } from "svelte";
+
   export let currentUser
 
   let polls = fetch("http://localhost:8080/api/polls").then((response) => {
   return response.json();
   })
+
+  function getPolls() {
+    polls = fetch("http://localhost:8080/api/polls").then((response) => {
+      return response.json();
+    })
+  }
 
   let feedback = ""
 
@@ -31,7 +39,7 @@
         console.log(option);
       })
 
-}
+  }
 
 </script>
 
