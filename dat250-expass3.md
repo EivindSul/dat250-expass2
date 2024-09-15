@@ -7,9 +7,9 @@ I have not worked with frontend before, so I am sure there exists a nice solutio
 but I did not find one for now.
 
 ## Links to experiments 1 and 2:
-[Expass1](https://github.com/EivindSul/dat250-expass1)
-[Expass2 report](https://github.com/EivindSul/dat250-expass2/blob/main/dat250-expass2.md)
-Expass 2 also exists as a tag in this repo. 
+- [Expass1](https://github.com/EivindSul/dat250-expass1)
+- [Expass2 report](https://github.com/EivindSul/dat250-expass2/blob/main/dat250-expass2.md)
+(Expass 2 also exists as a tag in this repo.) 
 
 ## Pending issues
 
@@ -20,5 +20,10 @@ I did a bad job when designing my API, so making a nice user interface was not r
 rewriting a lot of my earlier code.
 I decided to let it stay like it is, but this means that you have to input an id when 
 creating a poll, which is awkward.
+
+The user is not really logged in, the username is just stored as a variable.
+It is cleared upon refresh.
+
+All components require the website to be refreshed to be updated.
 
 
